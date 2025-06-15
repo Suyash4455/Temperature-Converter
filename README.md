@@ -1,4 +1,4 @@
-# 🌡️ Temperature Converter (Java Swing)
+# Temperature Converter (Java Swing)
 
 This is a small Java app with a simple window where you can enter a temperature in **Celsius**, click a button, and see the result in **Fahrenheit** and **Kelvin**.
 
