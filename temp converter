@@ -1,0 +1,53 @@
+package temp;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class TemperatureConverter {
+
+    public static void main(String[] args) {
+      
+        JFrame frame = new JFrame("Celsius to Fahrenheit and Kelvin");
+        frame.setSize(400, 250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        JLabel celsiusLabel = new JLabel("Enter Celsius:");
+        celsiusLabel.setBounds(50, 30, 100, 25);
+        JTextField celsiusField = new JTextField();
+        celsiusField.setBounds(160, 30, 150, 25);
+
+  
+        JButton convertButton = new JButton("Convert");
+        convertButton.setBounds(130, 70, 100, 30);
+
+        JLabel fahrenheitLabel = new JLabel("Fahrenheit: ");
+        fahrenheitLabel.setBounds(50, 120, 300, 25);
+        JLabel kelvinLabel = new JLabel("Kelvin: ");
+        kelvinLabel.setBounds(50, 150, 300, 25);
+
+        convertButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double celsius = Double.parseDouble(celsiusField.getText());
+                    double fahrenheit = (celsius * 9 / 5) + 32;
+                    double kelvin = celsius + 273.15;
+
+                    fahrenheitLabel.setText("Fahrenheit: " + String.format("%.2f", fahrenheit));
+                    kelvinLabel.setText("Kelvin: " + String.format("%.2f", kelvin));
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(frame, "Please enter a valid number.");
+                }
+            }
+        });
+
+        frame.add(celsiusLabel);
+        frame.add(celsiusField);
+        frame.add(convertButton);
+        frame.add(fahrenheitLabel);
+        frame.add(kelvinLabel);
+
+       
+        frame.setVisible(true);
+    }
+}
